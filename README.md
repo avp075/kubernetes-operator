@@ -1,7 +1,7 @@
 ![Kubernetes Namespace Automation with Slack](https://github.com/user-attachments/assets/db57b24c-4333-46f9-b1f5-faaa03d07f2c)
 
 
-'''
+```
 ➜  namespace-operator git:(main) kubectl describe ns team1-dev
 Name:         team1-dev
 Labels:       kubernetes.io/metadata.name=team1-dev
@@ -22,4 +22,4 @@ Resource Quotas
 
 No LimitRange resource.
 ➜  namespace-operator git:(main)
-'''
+```
