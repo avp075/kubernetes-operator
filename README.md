@@ -1,8 +1,5 @@
 ![Kubernetes Namespace Automation with Slack](https://github.com/user-attachments/assets/db57b24c-4333-46f9-b1f5-faaa03d07f2c)
 
-<img width="1065" height="158" alt="slack-notification" src="https://github.com/user-attachments/assets/69d1e1b6-e3b4-4588-bb3f-26088eb69e36" />
-
-
 ```
 ➜  namespace-operator git:(main) kubectl describe ns team1-dev
 Name:         team1-dev
