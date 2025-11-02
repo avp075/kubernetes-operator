@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: namespace-operator
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: namespace-operator
+  template:
+    metadata:
+      labels:
+        app: namespace-operator
+    spec:
+      serviceAccountName: namespace-operator-sa
+      containers:
+        - name: operator
+          image: aviraltzu/namespace-operator:latest #aviraltzu/namespace-operator:latest
+          imagePullPolicy: Always
+          env:
+            - name: LOG_LEVEL
+              value: "INFO"
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "200Mi"
+            requests:
+              cpu: "50m"
+              memory: "100Mi"
+

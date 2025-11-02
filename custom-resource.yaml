@@ -1,0 +1,28 @@
+apiVersion: example.com/v1
+kind: NamespaceSet
+metadata:
+  name: example-namespace-set
+spec:
+  teams:
+    - name: teamA
+      email: teamA@example.com
+      namespaces:
+        - dev
+        - test
+      resourceQuota:
+        hard:
+          requests.cpu: "1"
+          requests.memory: "1Gi"
+          limits.cpu: "2"
+          limits.memory: "2Gi"
+    - name: teamB
+      email: teamB@example.com
+      namespaces:
+        - dev
+        - test
+      resourceQuota:
+        hard:
+          requests.cpu: "500m"
+          requests.memory: "512Mi"
+          limits.cpu: "1"
+          limits.memory: "1Gi"
