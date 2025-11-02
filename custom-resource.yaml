@@ -4,8 +4,8 @@ metadata:
   name: example-namespace-set
 spec:
   teams:
-    - name: teamA
-      email: teamA@example.com
+    - name: team1
+      email: team1@example.com
       namespaces:
         - dev
         - test
@@ -15,8 +15,8 @@ spec:
           requests.memory: "1Gi"
           limits.cpu: "2"
           limits.memory: "2Gi"
-    - name: teamB
-      email: teamB@example.com
+    - name: team2
+      email: team2@example.com
       namespaces:
         - dev
         - test
