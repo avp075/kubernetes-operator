@@ -14,6 +14,9 @@ A lightweight Kubernetes operator that automatically manages team namespaces, ap
 - Deletes managed namespaces that are no longer present in the active `NamespaceSet`
 - Sends Slack notifications for namespace creation and deletion events
 
+<img width="1398" height="657" alt="Screenshot 2026-05-31 215229" src="https://github.com/user-attachments/assets/d2cb78a9-c66b-40de-adcd-77872b642723" />
+
+
 ## Repository structure
 
 ```
