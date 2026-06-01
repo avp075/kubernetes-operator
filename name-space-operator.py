@@ -15,7 +15,7 @@ import time
 import requests
 from kubernetes.client import V1Namespace, V1ObjectMeta, V1ResourceQuota, V1ResourceQuotaSpec
 
-# Slack webhook URL for notifications
+# Slack webhook URL for notifications - replace with your actual webhook URL
 SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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"
 
 def send_slack_notification(message: str, is_error: bool = False):
@@ -64,11 +64,11 @@ def ensure_namespace(api, name: str, team: str, ns_type: str, resource_quota_spe
             meta = V1ObjectMeta(name=name, labels={MANAGED_BY_LABEL: MANAGED_BY_VALUE, OWNER_TEAM_LABEL: team, NS_TYPE_LABEL: ns_type})
             ns_body = V1Namespace(metadata=meta)
             api.create_namespace(ns_body)
-            send_slack_notification(f"✅ Created new namespace: `{name}`\nTeam: `{team}`\nType: `{ns_type}`")
+            send_slack_notification(f"Created new namespace: `{name}`\nTeam: `{team}`\nType: `{ns_type}`")
             # give k8s a moment before creating quota
             time.sleep(0.5)
         else:
-            send_slack_notification(f"❌ Error creating namespace `{name}`: {str(e)}", is_error=True)
+            send_slack_notification(f"Error creating namespace `{name}`: {str(e)}", is_error=True)
             raise
 
     # apply resource quota (create or replace)
@@ -148,11 +148,11 @@ def reconcile(body, spec, **kwargs):
             try:
                 logger.info(f"Deleting namespace no longer in CR: {existing_ns}")
                 api.delete_namespace(existing_ns)
-                send_slack_notification(f"🗑️ Deleted namespace: `{existing_ns}`\nTeam: `{info['team']}`\nType: `{info['ns_type']}`")
+                send_slack_notification(f"Deleted namespace: `{existing_ns}`\nTeam: `{info['team']}`\nType: `{info['ns_type']}`")
             except Exception as e:
                 error_msg = f"Failed to delete namespace {existing_ns}"
                 logger.exception(error_msg)
-                send_slack_notification(f"❌ {error_msg}: {str(e)}", is_error=True)
+                send_slack_notification(f" {error_msg}: {str(e)}", is_error=True)
 
     # update status with counts
     status = {'managedNamespaces': len(desired)}
