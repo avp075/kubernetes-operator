@@ -123,7 +123,7 @@ kubectl describe namespace team1-dev
 ## Notes
 
 - The operator sends Slack notifications using the webhook URL configured in `name-space-operator.py`.
-- The deployment uses the image `aviral tzu/namespace-operator:latest`; update the image name as needed for your registry.
+- The deployment uses the image `aviraltzu/namespace-operator:latest`; update the image name as needed for your registry.
 - The operator requires cluster-wide permissions because it creates namespaces and manages cluster-scoped resources.
 
 ## Troubleshooting
